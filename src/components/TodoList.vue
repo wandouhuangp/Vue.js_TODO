@@ -1,5 +1,6 @@
 <template>
   <div>
+    <input v-model="newTodoText" v-on:keydown.enter="addTodo">
     <ul v-if="todos.length">
       <TodoListItem
         v-for="todo in todos"
@@ -15,16 +16,40 @@
 <script>
 import TodoListItem from "./TodoListItem.vue";
 
+let nextTodoId = 0;
+
 export default {
   name: "TodoList",
   components: {
     TodoListItem
   },
-  props: {
-    todos: Array,
-    required: true
+  data() {
+    return {
+      newTodoText: "",
+      todos: [
+        {
+          id: nextTodoId++,
+          text: "Learn Vue"
+        },
+        {
+          id: nextTodoId++,
+          text: "Learn about single-file components"
+        },
+        {
+          id: nextTodoId++,
+          text: "Fall in love"
+        }
+      ]
+    };
   },
   methods: {
+    addTodo: function() {
+      this.todos.push({
+        id: nextTodoId++,
+        text: this.newTodoText
+      });
+      this.newTodoText = "";
+    },
     removeTodo: function(id) {
       console.log("flag");
       this.todos = this.todos.filter(todo => {

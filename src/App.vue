@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h2>Vue TODOS</h2>
     <TodoList v-bind:todos="todos"></TodoList>
   </div>
 </template>
@@ -20,7 +21,6 @@ export default {
   },
   data() {
     return {
-      newTodoText: "",
       todos: [
         {
           id: nextTodoId++,
@@ -43,5 +43,13 @@ export default {
 <style>
 body {
   padding: 50px;
+  text-align: center;
+}
+input {
+  width: 300px;
+}
+ul {
+  text-align: left;
+  padding-left: 100px;
 }
 </style>
