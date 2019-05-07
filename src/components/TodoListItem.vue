@@ -1,7 +1,7 @@
 <template>
   <li>
-    {{ text }}
-    <button>X</button>
+    {{ todo.text }}
+    <button v-on:click="$emit('remove', todo.id)">X</button>
   </li>
 </template>
 
