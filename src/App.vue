@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Hello World!">Mark</HelloWorld>
-    <div>Some additional content here.</div>
+    <TodoListItem todo="{text: '1st Todo!'}"></TodoListItem>
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-
+import TodoListItem from "./components/TodoListItem";
 export default {
   name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
+    TodoListItem
   }
 };
 </script>
